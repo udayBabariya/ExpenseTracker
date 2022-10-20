@@ -23,6 +23,12 @@
                                     <constraint firstAttribute="height" constant="150" id="A1U-9A-bEN"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recen transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C21-6I-tca">
+                                <rect key="frame" x="20" y="273.33333333333331" width="146" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShP-Hh-b7V">
                                 <rect key="frame" x="266" y="266" width="104" height="35"/>
                                 <constraints>
@@ -102,6 +108,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Q6u-hS-hB6" secondAttribute="trailing" constant="20" id="3Sw-tm-nAa"/>
+                            <constraint firstItem="C21-6I-tca" firstAttribute="centerY" secondItem="ShP-Hh-b7V" secondAttribute="centerY" id="8P3-hK-vAV"/>
+                            <constraint firstItem="C21-6I-tca" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="B3V-qR-a6T"/>
                             <constraint firstItem="Q6u-hS-hB6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="FRG-6c-f5Y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lnW-KI-WjR" secondAttribute="trailing" constant="20" id="SLw-Ad-qAb"/>
                             <constraint firstItem="R53-K5-ecB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UFD-7M-ofb"/>

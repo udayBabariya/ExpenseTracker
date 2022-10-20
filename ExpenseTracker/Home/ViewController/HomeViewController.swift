@@ -17,25 +17,23 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Expense Tracker"
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
-//        createDummyTransactions()
     }
-    
-//    func createDummyTransactions(){
-//        let t1 = Transaction(id: 0, date: "11-10-2022", institution: "abc", account: "test", merchant: "xyz", amount: 99.78, type: "credit", categoryID: 1, category: "Public Transportation", isPending: true, isTransfer: false, isExpense: true, isEdited: false)
-//
-//        let t2 = Transaction(id: 0, date: "11-10-2022", institution: "abc", account: "test", merchant: "xyz", amount: 20.85, type: "credit", categoryID: 1, category: "Public Transportation", isPending: true, isTransfer: false, isExpense: true, isEdited: false)
-//
-//        let t3 = Transaction(id: 0, date: "11-10-2022", institution: "abc", account: "test", merchant: "xyz", amount: 86.00, type: "credit", categoryID: 1, category: "Public Transportation", isPending: true, isTransfer: false, isExpense: true, isEdited: false)
-//        transactions = [t1,t2,t3]
-//    }
     
     @IBAction func addNewTransactionButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "AddNewTransaction", bundle: .main)
         guard let addNewTransactionVC = storyboard.instantiateViewController(withIdentifier: "AddNewTransactionViewController") as? AddNewTransactionViewController else {return}
         addNewTransactionVC.delegate = self
         self.present(addNewTransactionVC, animated: true)
+    }
+    
+    @IBAction func showAllTransactionButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "AllTransactions", bundle: .main)
+        guard let allTransactionVC = storyboard.instantiateViewController(withIdentifier: "AllTransactionsViewController") as? AllTransactionsViewController else {return}
+        allTransactionVC.transactions = transactions
+        self.navigationController?.pushViewController(allTransactionVC, animated: true)
     }
 }
 

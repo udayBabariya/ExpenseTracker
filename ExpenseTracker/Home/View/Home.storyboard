@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pMy-aD-9iu">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -16,8 +16,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hS-hB6">
+                                <rect key="frame" x="20" y="111" width="350" height="150"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="A1U-9A-bEN"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShP-Hh-b7V">
+                                <rect key="frame" x="266" y="266" width="104" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="cQ0-wy-5l5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show All &gt;">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="showAllTransactionButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oGU-uz-SzR"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R53-K5-ecB">
-                                <rect key="frame" x="0.0" y="97" width="390" height="713"/>
+                                <rect key="frame" x="0.0" y="301" width="390" height="509"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" id="aBa-wW-TY1" customClass="TransactionTableViewCell" customModule="ExpenseTracker" customModuleProvider="target">
@@ -81,14 +101,20 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R53-K5-ecB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="4zI-BB-yGe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Q6u-hS-hB6" secondAttribute="trailing" constant="20" id="3Sw-tm-nAa"/>
+                            <constraint firstItem="Q6u-hS-hB6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="FRG-6c-f5Y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lnW-KI-WjR" secondAttribute="trailing" constant="20" id="SLw-Ad-qAb"/>
                             <constraint firstItem="R53-K5-ecB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UFD-7M-ofb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R53-K5-ecB" secondAttribute="bottom" id="Xaj-Rk-wD4"/>
+                            <constraint firstItem="R53-K5-ecB" firstAttribute="top" secondItem="ShP-Hh-b7V" secondAttribute="bottom" id="bzY-8W-RVv"/>
+                            <constraint firstAttribute="trailing" secondItem="ShP-Hh-b7V" secondAttribute="trailing" constant="20" id="ci8-dJ-8Ef"/>
+                            <constraint firstItem="Q6u-hS-hB6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="en6-4Q-AAs"/>
+                            <constraint firstItem="R53-K5-ecB" firstAttribute="top" secondItem="Q6u-hS-hB6" secondAttribute="bottom" constant="40" id="mYR-0H-myW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lnW-KI-WjR" secondAttribute="bottom" constant="20" id="rDh-lt-77V"/>
                             <constraint firstItem="R53-K5-ecB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="xZX-LB-Ghh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kPD-d2-lTa"/>
                     <connections>
                         <outlet property="addNewTransactionButton" destination="lnW-KI-WjR" id="BD8-M5-ipc"/>
                         <outlet property="transactionTableView" destination="R53-K5-ecB" id="w5S-ES-tuy"/>
@@ -96,12 +122,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1003.0769230769231" y="3.5545023696682461"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6VF-He-XcW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pMy-aD-9iu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aew-Ll-eYP">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="xq7-VD-tQN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHR-O4-P3v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="73.84615384615384" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

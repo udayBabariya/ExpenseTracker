@@ -20,6 +20,8 @@
 		785761DC290053A3000CBECF /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785761DB290053A3000CBECF /* TransactionTableViewCell.swift */; };
 		785761E229005A58000CBECF /* AddNewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785761E129005A58000CBECF /* AddNewTransactionViewController.swift */; };
 		785761E429005A6E000CBECF /* AddNewTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785761E329005A6E000CBECF /* AddNewTransaction.storyboard */; };
+		789B7DAE2901742D00453D76 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DAD2901742D00453D76 /* AllTransactionsViewController.swift */; };
+		789B7DB02901744200453D76 /* AllTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B7DAF2901744200453D76 /* AllTransactions.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		785761DB290053A3000CBECF /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		785761E129005A58000CBECF /* AddNewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTransactionViewController.swift; sourceTree = "<group>"; };
 		785761E329005A6E000CBECF /* AddNewTransaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewTransaction.storyboard; sourceTree = "<group>"; };
+		789B7DAD2901742D00453D76 /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
+		789B7DAF2901744200453D76 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		785761BA2900504B000CBECF /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				789B7DA9290172C100453D76 /* AllTransactions */,
 				785761DE29005A17000CBECF /* AddNewTransaction */,
 				785761DD290059FD000CBECF /* Home */,
 				785761BB2900504B000CBECF /* AppDelegate.swift */,
@@ -144,6 +149,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		789B7DA9290172C100453D76 /* AllTransactions */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DAC290172D700453D76 /* Controller */,
+				789B7DAA290172CE00453D76 /* View */,
+			);
+			path = AllTransactions;
+			sourceTree = "<group>";
+		};
+		789B7DAA290172CE00453D76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DAF2901744200453D76 /* AllTransactions.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		789B7DAC290172D700453D76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DAD2901742D00453D76 /* AllTransactionsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,6 +235,7 @@
 				785761CB2900504C000CBECF /* LaunchScreen.storyboard in Resources */,
 				785761C82900504C000CBECF /* Assets.xcassets in Resources */,
 				785761C32900504B000CBECF /* Main.storyboard in Resources */,
+				789B7DB02901744200453D76 /* AllTransactions.storyboard in Resources */,
 				785761E429005A6E000CBECF /* AddNewTransaction.storyboard in Resources */,
 				785761DA29005301000CBECF /* Home.storyboard in Resources */,
 			);
@@ -218,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				785761E229005A58000CBECF /* AddNewTransactionViewController.swift in Sources */,
+				789B7DAE2901742D00453D76 /* AllTransactionsViewController.swift in Sources */,
 				785761C02900504B000CBECF /* ViewController.swift in Sources */,
 				785761DC290053A3000CBECF /* TransactionTableViewCell.swift in Sources */,
 				785761BC2900504B000CBECF /* AppDelegate.swift in Sources */,

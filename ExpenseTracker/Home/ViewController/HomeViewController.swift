@@ -20,6 +20,28 @@ class HomeViewController: UIViewController {
         self.title = "Expense Tracker"
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
+        setupLogOutButton()
+    }
+    
+    func setupLogOutButton() {
+        let logOutButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(logOutButtonTapped))
+        self.navigationItem.rightBarButtonItem = logOutButton
+    }
+    
+    @objc func logOutButtonTapped() {
+        askUserforLogoutConfirmation()
+    }
+    
+    func askUserforLogoutConfirmation(){
+        let alert = UIAlertController(title: "Are you sure you want to logout?", message: nil, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+            Utility.setUserLoginStatus(false)
+            Utility.setRootViewController()
+        }
+        let noAction = UIAlertAction(title: "No", style: .default)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        self.present(alert, animated: true)
     }
     
     @IBAction func addNewTransactionButtonTapped(_ sender: UIButton) {

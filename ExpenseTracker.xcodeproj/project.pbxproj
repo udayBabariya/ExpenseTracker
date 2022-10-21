@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		785761BC2900504B000CBECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785761BB2900504B000CBECF /* AppDelegate.swift */; };
 		785761BE2900504B000CBECF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785761BD2900504B000CBECF /* SceneDelegate.swift */; };
-		785761C02900504B000CBECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785761BF2900504B000CBECF /* ViewController.swift */; };
-		785761C32900504B000CBECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785761C12900504B000CBECF /* Main.storyboard */; };
 		785761C62900504B000CBECF /* ExpenseTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 785761C42900504B000CBECF /* ExpenseTracker.xcdatamodeld */; };
 		785761C82900504C000CBECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 785761C72900504C000CBECF /* Assets.xcassets */; };
 		785761CB2900504C000CBECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785761C92900504C000CBECF /* LaunchScreen.storyboard */; };
@@ -22,14 +20,15 @@
 		785761E429005A6E000CBECF /* AddNewTransaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785761E329005A6E000CBECF /* AddNewTransaction.storyboard */; };
 		789B7DAE2901742D00453D76 /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DAD2901742D00453D76 /* AllTransactionsViewController.swift */; };
 		789B7DB02901744200453D76 /* AllTransactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B7DAF2901744200453D76 /* AllTransactions.storyboard */; };
+		789B7DB529025E2900453D76 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B7DB429025E2900453D76 /* Login.storyboard */; };
+		789B7DB729025E3400453D76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DB629025E3400453D76 /* LoginViewController.swift */; };
+		789B7DB92902725400453D76 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DB82902725400453D76 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		785761B82900504B000CBECF /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785761BB2900504B000CBECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		785761BD2900504B000CBECF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		785761BF2900504B000CBECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		785761C22900504B000CBECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		785761C52900504B000CBECF /* ExpenseTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseTracker.xcdatamodel; sourceTree = "<group>"; };
 		785761C72900504C000CBECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		785761CA2900504C000CBECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +41,9 @@
 		785761E329005A6E000CBECF /* AddNewTransaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewTransaction.storyboard; sourceTree = "<group>"; };
 		789B7DAD2901742D00453D76 /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
 		789B7DAF2901744200453D76 /* AllTransactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AllTransactions.storyboard; sourceTree = "<group>"; };
+		789B7DB429025E2900453D76 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		789B7DB629025E3400453D76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		789B7DB82902725400453D76 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +76,17 @@
 		785761BA2900504B000CBECF /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				789B7DB129025DF600453D76 /* Login */,
 				789B7DA9290172C100453D76 /* AllTransactions */,
 				785761DE29005A17000CBECF /* AddNewTransaction */,
 				785761DD290059FD000CBECF /* Home */,
 				785761BB2900504B000CBECF /* AppDelegate.swift */,
 				785761BD2900504B000CBECF /* SceneDelegate.swift */,
-				785761BF2900504B000CBECF /* ViewController.swift */,
-				785761C12900504B000CBECF /* Main.storyboard */,
 				785761C72900504C000CBECF /* Assets.xcassets */,
 				785761C92900504C000CBECF /* LaunchScreen.storyboard */,
 				785761CC2900504C000CBECF /* Info.plist */,
 				785761C42900504B000CBECF /* ExpenseTracker.xcdatamodeld */,
+				789B7DB82902725400453D76 /* Utility.swift */,
 			);
 			path = ExpenseTracker;
 			sourceTree = "<group>";
@@ -174,6 +176,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		789B7DB129025DF600453D76 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DB329025E1F00453D76 /* View */,
+				789B7DB229025E1100453D76 /* Contorller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		789B7DB229025E1100453D76 /* Contorller */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DB629025E3400453D76 /* LoginViewController.swift */,
+			);
+			path = Contorller;
+			sourceTree = "<group>";
+		};
+		789B7DB329025E1F00453D76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				789B7DB429025E2900453D76 /* Login.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,7 +261,7 @@
 			files = (
 				785761CB2900504C000CBECF /* LaunchScreen.storyboard in Resources */,
 				785761C82900504C000CBECF /* Assets.xcassets in Resources */,
-				785761C32900504B000CBECF /* Main.storyboard in Resources */,
+				789B7DB529025E2900453D76 /* Login.storyboard in Resources */,
 				789B7DB02901744200453D76 /* AllTransactions.storyboard in Resources */,
 				785761E429005A6E000CBECF /* AddNewTransaction.storyboard in Resources */,
 				785761DA29005301000CBECF /* Home.storyboard in Resources */,
@@ -248,9 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789B7DB92902725400453D76 /* Utility.swift in Sources */,
+				789B7DB729025E3400453D76 /* LoginViewController.swift in Sources */,
 				785761E229005A58000CBECF /* AddNewTransactionViewController.swift in Sources */,
 				789B7DAE2901742D00453D76 /* AllTransactionsViewController.swift in Sources */,
-				785761C02900504B000CBECF /* ViewController.swift in Sources */,
 				785761DC290053A3000CBECF /* TransactionTableViewCell.swift in Sources */,
 				785761BC2900504B000CBECF /* AppDelegate.swift in Sources */,
 				785761BE2900504B000CBECF /* SceneDelegate.swift in Sources */,
@@ -263,14 +291,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		785761C12900504B000CBECF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				785761C22900504B000CBECF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		785761C92900504C000CBECF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

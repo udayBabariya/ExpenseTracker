@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="ExpenseTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,7 +24,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recen transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C21-6I-tca">
-                                <rect key="frame" x="20" y="273.33333333333331" width="146" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="271" width="146" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,6 +114,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lnW-KI-WjR" secondAttribute="trailing" constant="20" id="SLw-Ad-qAb"/>
                             <constraint firstItem="R53-K5-ecB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UFD-7M-ofb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R53-K5-ecB" secondAttribute="bottom" id="Xaj-Rk-wD4"/>
+                            <constraint firstItem="R53-K5-ecB" firstAttribute="top" secondItem="C21-6I-tca" secondAttribute="bottom" constant="5" id="aul-QH-Fki"/>
                             <constraint firstItem="R53-K5-ecB" firstAttribute="top" secondItem="ShP-Hh-b7V" secondAttribute="bottom" id="bzY-8W-RVv"/>
                             <constraint firstAttribute="trailing" secondItem="ShP-Hh-b7V" secondAttribute="trailing" constant="20" id="ci8-dJ-8Ef"/>
                             <constraint firstItem="Q6u-hS-hB6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="en6-4Q-AAs"/>

@@ -38,4 +38,16 @@ class DBManager {
             }
         }
     }
+    
+    
+    func fetchTransactions() -> [Transaction] {
+        var transactions: [Transaction] = []
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Transaction")
+        do{
+            transactions = try context.fetch(fetchRequest) as! [Transaction]
+        }catch{
+            print("Fetch Error")
+        }
+        return transactions
+    }
 }

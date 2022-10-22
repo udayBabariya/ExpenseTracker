@@ -8,7 +8,7 @@
 import UIKit
 
 protocol addNewTransactionDelegate {
-    func addNewTransaction(trnasaction: Transaction)
+    func addedNewTransaction()
 }
 
 class AddNewTransactionViewController: UIViewController {
@@ -26,15 +26,20 @@ class AddNewTransactionViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        let id = UUID().uuidString
         let institute = institutionTextField.text ?? ""
         let amount = Double(amountTextField.text ?? "0") ?? 0.0
         let account = accountTextField.text ?? ""
         let merchant = merchantTextField.text ?? ""
         let category = categoryTextField.text ?? ""
-        
-//        let transcation = Transaction(id: id, institution: institute, account: account, merchant: merchant, date: Date(), amount: amount, type: "", categoryID: 0, category: category, isPending: false, isTransfer: false, isExpense: true, isEdited: false)
-//        delegate?.addNewTransaction(trnasaction: transcation)
+ 
+        let transaction = Transaction(context: DBManager.shared.context)
+        transaction.institute = institute
+        transaction.amount = amount
+        transaction.account = account
+        transaction.merchant = merchant
+        transaction.category = category
+        DBManager.shared.saveContext()
+        delegate?.addedNewTransaction()
         self.dismiss(animated: true)
     }
 }

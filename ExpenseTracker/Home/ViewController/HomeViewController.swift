@@ -21,6 +21,12 @@ class HomeViewController: UIViewController {
         transactionTableView.delegate = self
         transactionTableView.dataSource = self
         setupLogOutButton()
+        fetchAllTranscationAndReloadTableView()
+    }
+    
+    func fetchAllTranscationAndReloadTableView(){
+        transactions = DBManager.shared.fetchTransactions()
+        transactionTableView.reloadData()
     }
     
     func setupLogOutButton() {
@@ -75,8 +81,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension HomeViewController: addNewTransactionDelegate {
-    func addNewTransaction(trnasaction: Transaction) {
-        transactions.append(trnasaction)
-        transactionTableView.reloadData()
+    func addedNewTransaction() {
+        fetchAllTranscationAndReloadTableView()
     }
 }

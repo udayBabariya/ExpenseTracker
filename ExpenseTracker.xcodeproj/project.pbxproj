@@ -23,6 +23,9 @@
 		789B7DB529025E2900453D76 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B7DB429025E2900453D76 /* Login.storyboard */; };
 		789B7DB729025E3400453D76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DB629025E3400453D76 /* LoginViewController.swift */; };
 		789B7DB92902725400453D76 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789B7DB82902725400453D76 /* Utility.swift */; };
+		78DC439029041A1C00E0F41F /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC438E29041A1B00E0F41F /* Transaction+CoreDataClass.swift */; };
+		78DC439129041A1C00E0F41F /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC438F29041A1C00E0F41F /* Transaction+CoreDataProperties.swift */; };
+		78DC439429041ADE00E0F41F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DC439329041ADE00E0F41F /* DBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		789B7DB429025E2900453D76 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		789B7DB629025E3400453D76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		789B7DB82902725400453D76 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		78DC438E29041A1B00E0F41F /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		78DC438F29041A1C00E0F41F /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		78DC439329041ADE00E0F41F /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		785761BA2900504B000CBECF /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				78DC439229041AC500E0F41F /* DatabaseLayer */,
 				789B7DB129025DF600453D76 /* Login */,
 				789B7DA9290172C100453D76 /* AllTransactions */,
 				785761DE29005A17000CBECF /* AddNewTransaction */,
@@ -85,7 +92,6 @@
 				785761C72900504C000CBECF /* Assets.xcassets */,
 				785761C92900504C000CBECF /* LaunchScreen.storyboard */,
 				785761CC2900504C000CBECF /* Info.plist */,
-				785761C42900504B000CBECF /* ExpenseTracker.xcdatamodeld */,
 				789B7DB82902725400453D76 /* Utility.swift */,
 			);
 			path = ExpenseTracker;
@@ -201,6 +207,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		78DC439229041AC500E0F41F /* DatabaseLayer */ = {
+			isa = PBXGroup;
+			children = (
+				785761C42900504B000CBECF /* ExpenseTracker.xcdatamodeld */,
+				78DC438E29041A1B00E0F41F /* Transaction+CoreDataClass.swift */,
+				78DC438F29041A1C00E0F41F /* Transaction+CoreDataProperties.swift */,
+				78DC439329041ADE00E0F41F /* DBManager.swift */,
+			);
+			path = DatabaseLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,11 +294,14 @@
 			files = (
 				789B7DB92902725400453D76 /* Utility.swift in Sources */,
 				789B7DB729025E3400453D76 /* LoginViewController.swift in Sources */,
+				78DC439029041A1C00E0F41F /* Transaction+CoreDataClass.swift in Sources */,
+				78DC439429041ADE00E0F41F /* DBManager.swift in Sources */,
 				785761E229005A58000CBECF /* AddNewTransactionViewController.swift in Sources */,
 				789B7DAE2901742D00453D76 /* AllTransactionsViewController.swift in Sources */,
 				785761DC290053A3000CBECF /* TransactionTableViewCell.swift in Sources */,
 				785761BC2900504B000CBECF /* AppDelegate.swift in Sources */,
 				785761BE2900504B000CBECF /* SceneDelegate.swift in Sources */,
+				78DC439129041A1C00E0F41F /* Transaction+CoreDataProperties.swift in Sources */,
 				785761C62900504B000CBECF /* ExpenseTracker.xcdatamodeld in Sources */,
 				785761D429005234000CBECF /* Transaction.swift in Sources */,
 				785761D829005297000CBECF /* HomeViewController.swift in Sources */,

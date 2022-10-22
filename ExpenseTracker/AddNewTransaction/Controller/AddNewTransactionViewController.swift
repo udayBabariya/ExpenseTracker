@@ -33,8 +33,8 @@ class AddNewTransactionViewController: UIViewController {
         let merchant = merchantTextField.text ?? ""
         let category = categoryTextField.text ?? ""
         
-        let transcation = Transaction(id: id, institution: institute, account: account, merchant: merchant, date: Date(), amount: amount, type: "", categoryID: 0, category: category, isPending: false, isTransfer: false, isExpense: true, isEdited: false)
-        delegate?.addNewTransaction(trnasaction: transcation)
+//        let transcation = Transaction(id: id, institution: institute, account: account, merchant: merchant, date: Date(), amount: amount, type: "", categoryID: 0, category: category, isPending: false, isTransfer: false, isExpense: true, isEdited: false)
+//        delegate?.addNewTransaction(trnasaction: transcation)
         self.dismiss(animated: true)
     }
 }

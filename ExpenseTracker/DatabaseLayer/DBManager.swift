@@ -13,7 +13,7 @@ class DBManager {
     static let shared = DBManager()
     
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ExpenseTracker")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -23,9 +23,9 @@ class DBManager {
         })
         return container
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     lazy var context = persistentContainer.viewContext
     
     func saveContext () {
@@ -53,12 +53,8 @@ class DBManager {
     
     
     func deleteTransaction(_ transaction: Transaction){
-        do{
-            context.delete(transaction)
-            saveContext()
-        }catch{
-            print("Error while delteing transaction")
-        }
+        context.delete(transaction)
+        saveContext()
     }
     
 }

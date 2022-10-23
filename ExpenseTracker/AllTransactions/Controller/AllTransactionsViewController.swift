@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol allTransactionProtocol {
+    func deletedTransaction()
+}
+
 class AllTransactionsViewController: UIViewController {
     
     @IBOutlet weak var allTransactionsTableView: UITableView!
     
     var transactions: [Transaction] = []
+    var delegate: allTransactionProtocol? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +38,17 @@ extension AllTransactionsViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DBManager.shared.deleteTransaction(transactions[indexPath.row])
+            transactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            delegate?.deletedTransaction()
+        }
+    }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

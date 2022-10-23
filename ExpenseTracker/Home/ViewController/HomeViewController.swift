@@ -61,6 +61,7 @@ class HomeViewController: UIViewController {
         let storyboard = UIStoryboard(name: "AllTransactions", bundle: .main)
         guard let allTransactionVC = storyboard.instantiateViewController(withIdentifier: "AllTransactionsViewController") as? AllTransactionsViewController else {return}
         allTransactionVC.transactions = transactions
+        allTransactionVC.delegate = self
         self.navigationController?.pushViewController(allTransactionVC, animated: true)
     }
 }
@@ -69,7 +70,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,10 +79,29 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.configureCell(transaction: transaction)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            DBManager.shared.deleteTransaction(transactions[indexPath.row])
+            transactions.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension HomeViewController: addNewTransactionDelegate {
     func addedNewTransaction() {
+        fetchAllTranscationAndReloadTableView()
+    }
+}
+
+
+extension HomeViewController: allTransactionProtocol {
+    func deletedTransaction() {
         fetchAllTranscationAndReloadTableView()
     }
 }

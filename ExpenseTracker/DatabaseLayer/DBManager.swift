@@ -50,4 +50,15 @@ class DBManager {
         }
         return transactions
     }
+    
+    
+    func deleteTransaction(_ transaction: Transaction){
+        do{
+            context.delete(transaction)
+            saveContext()
+        }catch{
+            print("Error while delteing transaction")
+        }
+    }
+    
 }

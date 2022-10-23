@@ -12,6 +12,8 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +23,8 @@ class TransactionTableViewCell: UITableViewCell {
     func configureCell(transaction: Transaction) {
         accountLabel.text = transaction.account
         amountLabel.text = String(transaction.amount)
+        categoryLabel.text = transaction.category
+        dateLabel.text = "Today"
     }
 
 }

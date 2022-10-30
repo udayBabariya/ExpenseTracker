@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hS-hB6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6u-hS-hB6" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="111" width="350" height="150"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
@@ -154,6 +154,7 @@
                     <navigationItem key="navigationItem" id="kPD-d2-lTa"/>
                     <connections>
                         <outlet property="addNewTransactionButton" destination="lnW-KI-WjR" id="BD8-M5-ipc"/>
+                        <outlet property="lineChartsView" destination="Q6u-hS-hB6" id="O5w-xZ-Elq"/>
                         <outlet property="transactionTableView" destination="R53-K5-ecB" id="w5S-ES-tuy"/>
                     </connections>
                 </viewController>

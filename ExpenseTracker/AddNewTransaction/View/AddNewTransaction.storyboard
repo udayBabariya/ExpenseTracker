@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GZ6-JM-kkR">
-                                <rect key="frame" x="20" y="115.66666666666669" width="350" height="210"/>
+                                <rect key="frame" x="20" y="115.66666666666669" width="350" height="254"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-YH-Quc">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
@@ -50,10 +50,15 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNc-CD-FLi">
+                                        <rect key="frame" x="0.0" y="220" width="350" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dft-fu-qaL">
-                                <rect key="frame" x="155" y="365.66666666666669" width="80" height="40"/>
+                                <rect key="frame" x="155" y="409.66666666666669" width="80" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="0Ad-ng-Yp6"/>
                                     <constraint firstAttribute="height" constant="40" id="OOs-zJ-lbn"/>
@@ -81,6 +86,7 @@
                         <outlet property="accountTextField" destination="Nqm-YH-Quc" id="wW4-2L-7mz"/>
                         <outlet property="amountTextField" destination="sFd-yX-kj3" id="kxs-2B-TPS"/>
                         <outlet property="categoryTextField" destination="66G-8b-Zcz" id="EVS-I9-hMn"/>
+                        <outlet property="dateTextField" destination="rNc-CD-FLi" id="Qq1-Uy-4Jd"/>
                         <outlet property="institutionTextField" destination="OvO-bb-0LA" id="x9w-5a-zHu"/>
                         <outlet property="merchantTextField" destination="piJ-ku-Qie" id="2b5-YV-f66"/>
                     </connections>

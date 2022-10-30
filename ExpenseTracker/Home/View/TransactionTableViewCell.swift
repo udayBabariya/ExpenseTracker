@@ -24,7 +24,10 @@ class TransactionTableViewCell: UITableViewCell {
         accountLabel.text = transaction.account
         amountLabel.text = String(transaction.amount)
         categoryLabel.text = transaction.category
-        dateLabel.text = "Today"
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd MMM yyyy"
+        dateLabel.text = df.string(from: transaction.date ?? Date()) 
     }
 
 }

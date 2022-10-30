@@ -6,12 +6,13 @@
 //
 
 import UIKit
-
+import Charts
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var transactionTableView: UITableView!
     @IBOutlet weak var addNewTransactionButton: UIButton!
+    @IBOutlet weak var lineChartsView: LineChartView!
     
     var transactions: [Transaction] = []
     
@@ -22,7 +23,17 @@ class HomeViewController: UIViewController {
         transactionTableView.dataSource = self
         setupLogOutButton()
         fetchAllTranscationAndReloadTableView()
+        setupChartView()
     }
+    
+    let yValues: [ChartDataEntry] = {[
+        ChartDataEntry(x: 1.0, y: 10.0),
+        ChartDataEntry(x: 2.0, y: 12.0),
+        ChartDataEntry(x: 3.0, y: 14.0),
+        ChartDataEntry(x: 5.0, y: 10.0),
+        ChartDataEntry(x: 6.0, y: 6.0)
+        ]
+    }()
     
     func fetchAllTranscationAndReloadTableView(){
         transactions = DBManager.shared.fetchTransactions()
@@ -32,6 +43,19 @@ class HomeViewController: UIViewController {
     func setupLogOutButton() {
         let logOutButton = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(logOutButtonTapped))
         self.navigationItem.rightBarButtonItem = logOutButton
+    }
+    
+    func setupChartView(){
+        let set1 = LineChartDataSet(entries: yValues, label: "transactions")
+        set1.drawCirclesEnabled = false
+        let data = LineChartData(dataSet: set1)
+        lineChartsView.data = data
+        lineChartsView.animate(xAxisDuration: 2)
+        lineChartsView.rightAxis.enabled = false
+        lineChartsView.xAxis.labelPosition = .bottom
+        lineChartsView.xAxis.drawGridLinesEnabled = false
+        lineChartsView.leftAxis.drawGridLinesEnabled = false
+     
     }
     
     @objc func logOutButtonTapped() {
@@ -84,14 +108,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            DBManager.shared.deleteTransaction(transactions[indexPath.row])
-            transactions.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -108,4 +124,9 @@ extension HomeViewController: allTransactionProtocol {
     func deletedTransaction() {
         fetchAllTranscationAndReloadTableView()
     }
+}
+
+
+extension HomeViewController: ChartViewDelegate {
+    
 }

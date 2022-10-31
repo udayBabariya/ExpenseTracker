@@ -27,7 +27,6 @@ class TransactionTableViewCell: UITableViewCell {
         
         let df = DateFormatter()
         df.dateFormat = "dd MMM yyyy"
-        dateLabel.text = df.string(from: transaction.date ?? Date()) 
+        dateLabel.text = df.string(from: transaction.date ?? Date())
     }
-
 }

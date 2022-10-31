@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lineChartsView: LineChartView!
     
     var transactions: [Transaction] = []
+    var reversedTransactions: [Transaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +25,38 @@ class HomeViewController: UIViewController {
         setupLogOutButton()
         fetchAllTranscationAndReloadTableView()
         setupChartView()
+        upadteChartFromTransactions(transactions)
+    }
+ 
+    func upadteChartFromTransactions(_ transactions: [Transaction]) {
+        var chartDataEntry: [ChartDataEntry] = []
+        var dateWiseTransactions: [Date:Double] = [:]
+        var dateArray: [Date] = []
+        for trans in transactions {
+            if let amount =  dateWiseTransactions[trans.date] {
+                dateWiseTransactions[trans.date] = amount + trans.amount
+            }else{
+                dateWiseTransactions[trans.date] = trans.amount
+            }
+            if !dateArray.contains(trans.date) { dateArray.append(trans.date)}
+        }
+        for (index,date) in dateArray.enumerated() {
+            chartDataEntry.append(ChartDataEntry(x: Double(index), y: dateWiseTransactions[date] ?? 0.0))
+        }
+        
+        let set1 = LineChartDataSet(entries: chartDataEntry, label: "transactions")
+        set1.drawCirclesEnabled = false
+        let data = LineChartData(dataSet: set1)
+        lineChartsView.data = data
+        let df = DateFormatter()
+        df.dateFormat = "dd MMM yy"
+        lineChartsView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dateArray.map({df.string(from: $0)}))
+        lineChartsView.xAxis.granularity = 1
     }
     
-    let yValues: [ChartDataEntry] = {[
-        ChartDataEntry(x: 1.0, y: 10.0),
-        ChartDataEntry(x: 2.0, y: 12.0),
-        ChartDataEntry(x: 3.0, y: 14.0),
-        ChartDataEntry(x: 5.0, y: 10.0),
-        ChartDataEntry(x: 6.0, y: 6.0)
-        ]
-    }()
-    
     func fetchAllTranscationAndReloadTableView(){
-        transactions = DBManager.shared.fetchTransactions()
+        transactions = DBManager.shared.fetchTransactions().sorted(by: {$0.date < $1.date})
+        reversedTransactions = DBManager.shared.fetchTransactions().reversed()
         transactionTableView.reloadData()
     }
     
@@ -46,16 +66,11 @@ class HomeViewController: UIViewController {
     }
     
     func setupChartView(){
-        let set1 = LineChartDataSet(entries: yValues, label: "transactions")
-        set1.drawCirclesEnabled = false
-        let data = LineChartData(dataSet: set1)
-        lineChartsView.data = data
-        lineChartsView.animate(xAxisDuration: 2)
+        lineChartsView.animate(xAxisDuration: 1)
         lineChartsView.rightAxis.enabled = false
         lineChartsView.xAxis.labelPosition = .bottom
         lineChartsView.xAxis.drawGridLinesEnabled = false
         lineChartsView.leftAxis.drawGridLinesEnabled = false
-     
     }
     
     @objc func logOutButtonTapped() {
@@ -94,16 +109,16 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if transactions.count >= 5 {
+        if reversedTransactions.count >= 5 {
             return 5
         }else{
-            return transactions.count
+            return reversedTransactions.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as? TransactionTableViewCell else {return UITableViewCell()}
-        let transaction = transactions[indexPath.row]
+        let transaction = reversedTransactions[indexPath.row]
         cell.configureCell(transaction: transaction)
         return cell
     }
@@ -116,6 +131,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 extension HomeViewController: addNewTransactionDelegate {
     func addedNewTransaction() {
         fetchAllTranscationAndReloadTableView()
+        upadteChartFromTransactions(transactions)
     }
 }
 
@@ -123,10 +139,7 @@ extension HomeViewController: addNewTransactionDelegate {
 extension HomeViewController: allTransactionProtocol {
     func deletedTransaction() {
         fetchAllTranscationAndReloadTableView()
+        upadteChartFromTransactions(transactions)
     }
 }
 
-
-extension HomeViewController: ChartViewDelegate {
-    
-}

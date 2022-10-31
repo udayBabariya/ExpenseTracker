@@ -32,11 +32,6 @@ class AddNewTransactionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        accountTextField.text = "account"
-//        institutionTextField.text = "institute"
-//        merchantTextField.text = "merchant"
-//        amountTextField.text = "1"
-//        categoryTextField.text = "cat"
         dateTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: .valueChanged)
         let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(self.datePickerDone))
